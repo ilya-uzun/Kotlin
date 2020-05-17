@@ -19,7 +19,6 @@ Route make_Route() {
 	Route t(s, i, d);
 	return t;
 }
-
 //Функция для передачи объекта как параметра
 void print_Route(Route t) 
 {
@@ -28,13 +27,13 @@ void print_Route(Route t)
 
 int main(){
 	setlocale(LC_ALL, "russian");
-	//конструкор без параметрами
+	// конструкор без параметрами
 	Route t1;
 	t1.show();
-	//конструкор с параметрами
+	// конструкор с параметрами
 	Route t2;
 	t2.show();
-	//конструкор копирования
+	// конструкор копирования
 	Route t3 = t2;
 	t3.set_start("Perm 2");
 	t3.set_finish("Mosсow");
