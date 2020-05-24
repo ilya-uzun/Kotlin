@@ -11,11 +11,11 @@ St make_stack(int n)
 {
   St s;
   Time t;
-  for(int i=0;i<n;i++)
+  for(int i=0; i<n; i++)
     { cin>>t;//ввод переменной
-s.push(t);//добавление ее в стек
-}
-return s;//вернуть стек как результат функции
+      s.push(t);//добавление ее в стек
+    }
+  return s;//вернуть стек как результат функции
 } 
 // ункции для работы с вектором и стеком
 //копирует стек в вектор
@@ -131,8 +131,15 @@ void Delenie(St &s)
     }
   s=copy_vector_to_stack(v);//копируем вектор в стек
 }
+void print_stack(St str)
+{
+  int k = 0;
+  for(int i = 0; i < str.size(); i++) k++;
+  cout << "Number of stack elements " << k << endl;
+  cout << "Output top stack - "  << str.top()<< endl;
+}
 
-void main()
+int main()
 {
   Time t;
   St s;
