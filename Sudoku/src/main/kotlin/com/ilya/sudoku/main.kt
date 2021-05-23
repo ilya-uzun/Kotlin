@@ -10,12 +10,14 @@ fun main() {
     val input = readFile("input")
     val solution = readFile("solution")
 
-    var result = true
+    var result = CheckOutcome.Ok
     for (i in 0 until 9){
-        if (!сheckLine(i, input, solution)){
-            result = false
+        val CheckOut = сheckLine(i, input, solution)
+        if (CheckOut != CheckOutcome.Ok){
+            result = CheckOut
             break
         }
+
     }
 
     println(result)
@@ -25,21 +27,19 @@ fun main() {
 }
 
 // проверка строчек на повторение
-fun сheckLine(lineNumber:Int, input:Map<Coorinate, Int>, solution:Map<Coorinate, Int>): Boolean{
+fun сheckLine(lineNumber:Int, input:Map<Coorinate, Int>, solution:Map<Coorinate, Int>): CheckOutcome{
     for (i in 0 until 8){
         val checkCoordinate = Coorinate(x = lineNumber, y = i)
-        val fromInput = input[checkCoordinate]
-        val fromSolution = solution[checkCoordinate]
-        val checkValue = fromInput ?: fromSolution?: return false // ?: либо
+        val checkValue = input[checkCoordinate] ?: solution[checkCoordinate] ?: return CheckOutcome.Incomplete // ?: либо
         for (j in i+1 until 9){
             val intenalCoorinate = Coorinate(x = lineNumber, y = j)
-            val intenalValue = fromInput ?: fromSolution ?: return false
-            if (checkValue != intenalValue){
-                return false
+            val intenalValue = input[intenalCoorinate] ?: solution[intenalCoorinate] ?: return CheckOutcome.Incomplete
+            if (checkValue == intenalValue){ // сранения линий
+                return CheckOutcome.Failed
             }
         }
     }
-    return true
+    return CheckOutcome.Ok
 }
 
 // чтение из файла
