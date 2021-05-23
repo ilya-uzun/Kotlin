@@ -9,12 +9,40 @@ fun main() {
 
     val input = readFile("input")
     val solution = readFile("solution")
-    //val input: InputStream = File("input").inputStream()
-    //val inputString = input.bufferedReader().use { it.readText() }
-    println(input)
-    println(solution)
+
+    var result = true
+    for (i in 0 until 9){
+        if (!сheckLine(i, input, solution)){
+            result = false
+            break
+        }
+    }
+
+    println(result)
+//    println(input)
+//    println(solution)
+
 }
 
+// проверка строчек на повторение
+fun сheckLine(lineNumber:Int, input:Map<Coorinate, Int>, solution:Map<Coorinate, Int>): Boolean{
+    for (i in 0 until 8){
+        val checkCoordinate = Coorinate(x = lineNumber, y = i)
+        val fromInput = input[checkCoordinate]
+        val fromSolution = solution[checkCoordinate]
+        val checkValue = fromInput ?: fromSolution?: return false // ?: либо
+        for (j in i+1 until 9){
+            val intenalCoorinate = Coorinate(x = lineNumber, y = j)
+            val intenalValue = fromInput ?: fromSolution ?: return false
+            if (checkValue != intenalValue){
+                return false
+            }
+        }
+    }
+    return true
+}
+
+// чтение из файла
 fun readFile(fileName: String):Map<Coorinate, Int> =
     File(fileName)
         .readLines()
@@ -31,5 +59,4 @@ fun readFile(fileName: String):Map<Coorinate, Int> =
                 }
         }
         .toMap()
-
 
