@@ -23,6 +23,16 @@ fun main() {
             result = columnCheckOut
             break
         }
+        // Провека квадрата
+        val quadrantCheckOutcome = сheckLine(input, solution) { index ->
+            val x = 3 * (i / 3) + index /3
+            val y = 3 * (i % 3) + index % 3
+            Coorinate(x, y)
+        }
+        if (quadrantCheckOutcome != CheckOutcome.Ok){
+            result = quadrantCheckOutcome
+            break
+        }
     }
     println(result)
 }
