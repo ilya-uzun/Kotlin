@@ -16,8 +16,10 @@ fun main(args: Array<String>) {
         print("${arrayRandom[i]} ")
     }
 
-    for (i < (size - 1)){
-        for (j > (size + 1))
+	val a = size - 1
+    val b = size + 1
+    for (i in 1..a){
+        for (j in 1..b)
             if(arrayRandom[j] > arrayRandom[j]){
                 var tepm = arrayRandom[j] 
                 arrayRandom[j]= arrayRandom[j+1]
