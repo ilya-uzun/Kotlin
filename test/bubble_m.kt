@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
         println("Введенно недопустимое значение")
         return 
     }
-    // Инициализация массива
+    // Инициализация массива способ 1
     var arrayRandom = Array (size, {(0 until 10).random()})
 
     for (i in arrayRandom.indices) {
@@ -26,6 +26,6 @@ fun main(args: Array<String>) {
 
     for (i in arrayRandom.indices) {
         print("${arrayRandom[i]} ")
-    }
+       }
     print("\n")
 }
