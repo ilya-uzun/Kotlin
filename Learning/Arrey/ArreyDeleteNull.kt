@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun  main(args: Array<String>) {
     println ("Введите число")
     var size = readArrey()
     println ("\n")
@@ -19,6 +19,7 @@ fun main(args: Array<String>) {
     println("вывод отсортированного массива :")
     arrayRandom.forEach { print("$it ")} // вывод массива
     print("\n")
+
 }
 
 fun readArrey (size: Int = readLine()!!.toInt()): Int = if (size <= 0) 1 else size 
