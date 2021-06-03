@@ -1,17 +1,19 @@
 
-data class Preson(val name: Stirng, val age : Int )
+data class Person(val name: String, val age : Int )
 
 fun main(){
-
+    val people = listOf(Person("Alice", 29), Person("Bob", 31))
+    findTheOldest(people)
 }
 
-
-fun findTheOldest(people: List<Preson>) {
+fun findTheOldest(people: List<Person>) {
     var maxAge = 0
     var theOldest: Person ?= null
-    for (person.age > maxAge) {
-        maxAge = preson.maxAge
-        theOldest = person
+    for (i in people) {
+        if (i.age > maxAge) {
+            maxAge = i.age
+            theOldest = i
+        }
     }
-    printLN(theOldest)
+    println(theOldest)
 }
