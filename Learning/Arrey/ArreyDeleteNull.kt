@@ -1,18 +1,11 @@
-fun main(args: Array<String>) {
+fun  main(args: Array<String>) {
     println ("Введите число")
-    var size = readLine()!!.toInt() // !!.toInt() - преобразование из Strung
+    var size = readArrey()
     println ("\n")
-    // проверка на отричательное значение
-    if (size <= 0){
-        println("Введенно недопустимое значение")
-        return 
-    }
-    // Инициализация массива способ 1
+    // Инициализация массива 
     var arrayRandom = Array (size, {(0 until 10).random()})
 
-    for (i in arrayRandom.indices) {
-        print("${arrayRandom[i]} ")
-    }
+    arrayRandom.forEach { print("$it ")} // вывод массива
     print("\n")
 
     for (i in 1..size - 1){
@@ -23,9 +16,10 @@ fun main(args: Array<String>) {
                 arrayRandom[j+1] = tepm
             }
     }
-
-    for (i in arrayRandom.indices) {
-        print("${arrayRandom[i]} ")
-       }
+    println("вывод отсортированного массива :")
+    arrayRandom.forEach { print("$it ")} // вывод массива
     print("\n")
+
 }
+
+fun readArrey (size: Int = readLine()!!.toInt()): Int = if (size <= 0) 1 else size 
