@@ -1,9 +1,14 @@
 fun main(){
   println("Введите число")
-   val n = 6 //readLine()!!.toInt() // онлайн компилятор выдает ошибку
-   val m = 3 //readLine()!!.toInt()
-   println("$n, $m")
-   println(sum(n,m))
+  try {
+       val n = readLine()!!.toInt() // онлайн компилятор выдает ошибку
+       val m = readLine()!!.toInt()
+       println(sum(n,m))
+   }
+    catch (ex: Exception) {
+        println("Введенно неверное число")
+    }
+   
 }
 
 fun sum(n: Int, m: Int): Int {
