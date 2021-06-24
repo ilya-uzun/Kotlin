@@ -2,7 +2,7 @@ fun main(){
   println("Введите число")
   val n = readLine()!!.toInt()
   val m = readLine()!!.toInt()
-  pruntln(sum(n,m))
+  println(sum(n,m))
 }
 
 fun sum(n: Int, m: Int): Int {
