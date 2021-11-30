@@ -1,17 +1,17 @@
 /*
 * Для определения интерфейса применяется ключевое слово interface. Например:
 */
-inreface Movable{
+interface Movable{
     var speed: Int  // объявление свойства
-    fun moe()      // определение функции без реализации
+    fun move()      // определение функции без реализации
     fun stop(){    // определение функции с реализацией по умолчанию
         println("Остановка")
+    }
 }
 
 /*
 * Определим два класса, которые применяют интерфейс:
 */
-
 class Car : Movable{
 
     override var speed = 60
@@ -26,12 +26,12 @@ class Aircraft : Movable{
     override fun move(){
         println("Самолет летит  со скоростью $speed км/ч")
     }
-    override funstop(){
+    override fun stop(){
         println("Приземление")
+    }
 }
 
-fun main() {
-
+fun main(){
     val m1: Movable = Car()
     val m2: Movable = Aircraft()
     // val m3: Movable = Movable() напрямую объект интерфейса создать нельзя
