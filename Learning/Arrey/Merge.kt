@@ -2,20 +2,18 @@
 fun main(args: Array<String>) {
     val numbers = mutableListOf(58,2,78,3,9,8,10)
     val sortedList = merge(numbers)
-    println("Первоначальный массив: $numbers")
+    println("Первоначальнный массив: $numbers")
     println("Отсортированный массив: $sortedList")
 }
 
 fun mergeSort(list: List<Int>): List<Int> {
-    if (list.size <= 1) {
-        return list
-    }
+    if (list.size <= 1) return list
 
     val middle = list.size / 2 // Определяем середину массива
     var left = list.subList(0,middle);
     var right = list.subList(middle,list.size);
 
-    // разбиваем списал до одного элемента
+    // разбиваем список до одного элемента
     return merge(merge(left), mergeSort(right)) 
 }
 // сортировка двух списков и объединение отсортированного списка

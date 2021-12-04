@@ -10,9 +10,8 @@ fun main(args: Array<String>) {
     // Инициализация массива способ 1
     var arrayRandom = Array (size, {(0 until 10).random()})
 
-    for (i in arrayRandom.indices) {
-        print("${arrayRandom[i]} ")
-    }
+    for (i in arrayRandom.indices) print("${arrayRandom[i]} ")
+
     print("\n")
 
     for (i in 1..size - 1){
@@ -24,8 +23,7 @@ fun main(args: Array<String>) {
             }
     }
 
-    for (i in arrayRandom.indices) {
-        print("${arrayRandom[i]} ")
-       }
+    for (i in arrayRandom.indices) print("${arrayRandom[i]} ")
+
     print("\n")
 }
