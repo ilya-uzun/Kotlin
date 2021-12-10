@@ -1,5 +1,5 @@
 fun isSorted(a: Array<Int>, size: Int): Unit {
-    for(i in 0..size){println(a[i])} 
+    for(i in until size){println(a[i])} 
 /*
     for(i in 0..a.size - 1){
         if(a[i]>a[i + 1]){
@@ -23,13 +23,13 @@ fun createArray(number: Int): Array<Int>{
     //val scanner = Scanner(System.`in`) 
     //val array = IntArray(number) 
 
-    val a: Array<Int> = Array(3) {0}
+    val a: Array<Int> = Array(3) {Math.random() * 10).toInt()}
 
-    for (i in 0 until number){
+    //for (i in 0 until number){
         //array[i - 1] = number.nextInt()
-        a[i] = (Math.random() * 10).toInt()
-        print(" ${a[i]}")
-    } 
+    //    a[i] = (Math.random() * 10).toInt()
+    //    print(" ${a[i]}")
+    //} 
     return a
 } 
 
