@@ -1,5 +1,6 @@
 fun isSorted(a: Array<Int>, size: Int): Unit {
-    for(i in 0..size){println(a[i])} 
+    for(i in a.indices){println(a[i])} 
+    println(a.size)
 /*
     for(i in 0..a.size - 1){
         if(a[i]>a[i + 1]){
@@ -38,6 +39,7 @@ fun main() {
     //val n = scanner.nextInt() 
     val n = 3
     val sortedArray = createArray(n) 
+    println("")
     val outAnswer = isSorted(sortedArray, n)
 outAnswer
 }
