@@ -1,10 +1,10 @@
 fun isSorted(a: Array<Int>, size: Int): Unit {
-<<<<<<< HEAD
+
     for(i in a.indices){println(a[i])} 
     println(a.size)
-=======
+
     for(i in until size){println(a[i])} 
->>>>>>> beb1395188d28f75d5c60734c1dafbb8a13dc6d8
+
 /*
     for(i in 0..a.size - 1){
         if(a[i]>a[i + 1]){
