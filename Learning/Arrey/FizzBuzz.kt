@@ -1,18 +1,23 @@
 
 fun fizzBuzz(n: Int): Array<String> {
-    var a = Array(n){i -> (1+i).toString()}
+    val a = Array<String>(n, {" "})
     
-    a.forEachIndexed{ i, element -> 
-        if (i % 3 == 0 && i % 5 == 0) a[i] = "FizzBuzz"
-        if (i % 3 == 0) a[i] = "Fizz"
-        if (i % 5 == 0) a[i] = "Buzz"
+    for(i in 1..n-1){
+        if (i % 15 == 0){
+            a.set(i, "FizzBuzz")
+        }else if (i % 5 == 0){
+            a.set(i, "Buzz")
+        }else if (i % 3 == 0){
+            a.set(i, "Fizz")
+        }else {
+            a.set(i, i.toString())
+        } 
     }
-    
     return a
 }
 
 fun main() {
-    val numbersMap = fizzBuzz(10)
+    val numbersMap = fizzBuzz(16)
     for(i in numbersMap.indices) println(numbersMap[i])
     
 }
