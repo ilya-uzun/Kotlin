@@ -51,7 +51,7 @@ fun сheckLine(
             val intenalCoorinate = coordinateGenerator(j)
             val intenalValue =
                 input[intenalCoorinate] ?: solution[intenalCoorinate] ?: return CheckOutcome.Incomplete
-            if (checkValue == intenalValue){ // сранения линий
+            if (checkValue == intenalValue){ // сравнения линий
                 return CheckOutcome.Failed
             }
         }
@@ -67,7 +67,7 @@ fun readFile(fileName: String):Map<Coorinate, Int> =
         .flatMap { indexedValue ->
             val xCoordinate = indexedValue.index
             indexedValue.value.toCharArray().withIndex()
-                .filter { indexedChar -> indexedChar.value != '.'} // != добавели фильтр точекр
+                .filter { indexedChar -> indexedChar.value != '.'} // != добавели фильтр точек
                 .map{ indexedChar ->
                     val yCoordinate = indexedChar.index
                     val coordinate = Coorinate(xCoordinate, yCoordinate)
