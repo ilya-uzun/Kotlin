@@ -17,10 +17,6 @@ class Coorinate (var x: Int, var y: Int){
         return true
     }
 
-    override fun hashCode(): Int {
-        var result = x
-        result = 31 * result + y
-        return result
-    }
+    override fun hashCode(): Int = 31 * x + y
 
 }
