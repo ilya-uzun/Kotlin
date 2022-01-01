@@ -1,5 +1,9 @@
-task hello {
-   doLast {
-      println 'tutorialspoint'
-   }
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.6.10"
 }
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
