@@ -1,8 +1,9 @@
 import java.io.File
 /**
  *
- * inputName имя первоначального файла с текстом.
+ * readFile чтение файла.
  * outputName имя переписанного файла с текстом из файла  inputName.
+ * quantityWord - считает количестослов в файле
  */
 class Sort(){
 
@@ -14,28 +15,21 @@ class Sort(){
                 f.createNewFile()
             } 
         f.writeText(text)
-   }
+    }//writeFile
+    
+    /**
+    * trim() - Удалит пробел в конце файла
+    * Функция считает количество пробелов
+    */
+    fun quantityWord(text: String): Int = Regex("""(\s+|(\r\n|\r|\n))""").findAll(text.trim()).count() + 1
 
-/*
-    fun writeFile(outputName: String){
-    }
 
-    fun writeFile(inputName: String,  outputName: String){
-        val writer = File(outputName).bufferedWriter()
-        for (line in File(inputName).readLines()) {
 
-            for (word in line.split(Regex("\n"))) {
-                writer.write(" ")
-                writer.write(word)
-            }
-        writer.close()
-       }
-    }
-*/
-}
+}//Sort()
 
 fun main(){
     val sort = Sort()
-    
-    sort.writeFile(sort.readFile("test1"), "test2" )
+    val text = sort.readFile("test1")
+    sort.writeFile(text, "test2" )
+    println(sort.quantityWord(text))
 }
