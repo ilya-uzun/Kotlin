@@ -24,6 +24,25 @@ class Sort(){
     fun quantityWord(text: String): Int = Regex("""(\s+|(\r\n|\r|\n))""").findAll(text.trim()).count() + 1
 
 
+    fun countingWords(text: String): HashMap<String, Int> {
+        var frequency = HashMap<String, Int>()// Пустая Хеш таблица
+
+        for(i in text.indices){
+            var temp = text.nextLine()
+
+            if(frequency.containsKey(temp)) {
+                var count = frequency.get(temp);
+                frequency.put(temp, Integer.sum(count, 1))
+            } else {
+                frequency.put(temp, 1)
+            }
+    
+        }
+    return frequency
+    }//countingWords // https://translated.turbopages.org/proxy_u/en-ru.ru.14401952-61d1b10c-98ccbbcd-74722d776562/https/stackoverflow.com/questions/36967655/count-same-lines-in-a-file-java
+
+
+
 
 }//Sort()
 
