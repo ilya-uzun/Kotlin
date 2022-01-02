@@ -13,10 +13,12 @@ class Sort(){
                 writer.newLine()
             }
             for (word in line.split(Regex("\\s"))) {
+                writer.write(" ")
                 writer.write(word)
             }
         writer.close()
-    }
+       }
+   }
 }
 
 fun main(){
