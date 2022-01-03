@@ -51,14 +51,13 @@ class Sort(){
             val count = map.getOrDefault(c, defaultValue = 0)
             map[c] = count + 1
         }
-        //val sorted = map.toSortedMap()
         return map
     }
 
     // сортировка HashMap 
     fun sortHashMap(map: Map<Char, Int>): Map<Char, Int>{
         val sortedMap = map.toSortedMap()
-         sortedMap.values
+         //sortedMap.keys
         return sortedMap
     }
 
@@ -72,5 +71,5 @@ fun main(){
     println(sort.occurrencesOfCharacters(text))
 
     val a = sort.occurrencesOfCharacters(text)
-    println(sort.sortHashMap(a))
+    println(sort.sortHashMap(a).values)
 }
