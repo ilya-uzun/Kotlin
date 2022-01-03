@@ -42,8 +42,8 @@ class Sort(){
     }//countingWords // https://translated.turbopages.org/proxy_u/en-ru.ru.14401952-61d1b10c-98ccbbcd-74722d776562/https/stackoverflow.com/questions/36967655/count-same-lines-in-a-file-java
 */
     // считаем количесва знаков
-    fun occurrencesOfCharacters(text: String): HashMap<Char, Int> {
-        val map = HashMap<Char, Int>()
+    fun occurrencesOfCharacters(text: String): Map<Char, Int> {
+        val map = mutableMapOf<Char, Int>()
         for (c in text) {
             // Игнорируем пробелы.
             if(c == " ".single()) continue
@@ -51,16 +51,17 @@ class Sort(){
             val count = map.getOrDefault(c, defaultValue = 0)
             map[c] = count + 1
         }
+        //val sorted = map.toSortedMap()
         return map
     }
-/*
+
     // сортировка HashMap 
-    fun sortHashMap(map: HashMap<Char, Int>): HashMap<Char, Int>{
-        val sortedMap: sortedMap<Char, Int>  = HashMap<Char, Int>()
+    fun sortHashMap(map: Map<Char, Int>): Map<Char, Int>{
         val sortedMap = map.toSortedMap()
-        return sortedMap.values
+         sortedMap.values
+        return sortedMap
     }
-*/
+
 }//Sort()
 
 fun main(){
@@ -69,6 +70,7 @@ fun main(){
     sort.writeFile(text, "test2" )
     println(sort.quantityWord(text))
     println(sort.occurrencesOfCharacters(text))
+
     val a = sort.occurrencesOfCharacters(text)
-    //println(sort.sortHashMap(a))
+    println(sort.sortHashMap(a))
 }
