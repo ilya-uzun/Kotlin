@@ -7,7 +7,7 @@ import java.io.File
  */
 class Sort(){
 
-    fun readFile(inputName: String): String = File(inputName).readText()
+    fun readFile(inputName: String): String = File(inputName).readText().lowercase()
 
     fun writeFile(text: String, outputName: String){
         val f = File(outputName)
@@ -23,24 +23,6 @@ class Sort(){
     */
     fun quantityWord(text: String): Int = Regex("""(\s+|(\r\n|\r|\n))""").findAll(text.trim()).count() + 1
 
-/*
-    fun countingWords(text: String): HashMap<String, Int> {
-        var frequency = HashMap<String, Int>()// Пустая Хеш таблица
-
-        for(i in text){
-            var temp = text.nextLine()
-
-            if(frequency.containsKey(temp)) {
-                var count = frequency.get(temp);
-                frequency.put(temp, Integer.sum(count, 1))
-            } else {
-                frequency.put(temp, 1)
-            }
-    
-        }
-    return frequency
-    }//countingWords // https://translated.turbopages.org/proxy_u/en-ru.ru.14401952-61d1b10c-98ccbbcd-74722d776562/https/stackoverflow.com/questions/36967655/count-same-lines-in-a-file-java
-*/
     // считаем количесва знаков
     fun occurrencesOfCharacters(text: String): Map<Char, Int> {
         val map = mutableMapOf<Char, Int>()
@@ -69,7 +51,11 @@ fun main(){
     sort.writeFile(text, "test2" )
     println(sort.quantityWord(text))
     println(sort.occurrencesOfCharacters(text))
-
+    println("keys")
+    println(sort.occurrencesOfCharacters(text).keys)
+    println("values")
+    println(sort.occurrencesOfCharacters(text).values)
     val a = sort.occurrencesOfCharacters(text)
+    println("sort")
     println(sort.sortHashMap(a).values)
 }
