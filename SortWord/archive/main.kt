@@ -37,10 +37,12 @@ class Sort(){
     }
 
     // сортировка HashMap 
-    fun sortHashMap(map: Map<Char, Int>): Map<Char, Int>{
-        val sortedMap = map.toSortedMap()
-         //sortedMap.keys
-        return sortedMap
+    fun sortHashMap(map: HashMap<Char, Int>){
+        var sortedMap = mutableMapOf<Char, Int>()
+           sortedMap = map
+            sortedMap = hashMapForTry.entries.sortedBy { it.value }.associate { it.toPair() }
+          println(sortedMap)
+        //return sortedMap
     }
 
 }//Sort()
@@ -57,5 +59,5 @@ fun main(){
     println(sort.occurrencesOfCharacters(text).values)
     val a = sort.occurrencesOfCharacters(text)
     println("sort")
-    println(sort.sortHashMap(a).values)
+    //println(sort.sortHashMap(a))
 }
