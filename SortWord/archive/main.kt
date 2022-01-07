@@ -44,6 +44,54 @@ class Sort(){
           println(sortedMap)
         //return sortedMap
     }
+    // долгий способ
+    fun wordLong(){
+        val input = "outputName имя outputName - переписанного, файла / с текстом из файла  inputName."
+        var words = mutableListOf<String>
+        var currentWord = ""
+        for (i in input.indices){
+            if(i == input.length - 1){
+                currentWord += input[i]
+                words.add(currentWord)
+            }
+            if(input[i] == ' '){
+                words.add(currentWord)
+                currentWord = ""
+            } else {
+                currentWord =+ input[i]
+            }
+        }
+        
+        for (i in input.indices){
+            words[i] = words[i].toLowerCase()
+            if (words[i].endsWith('.')) || words[i].endsWith(',')){
+                words[i] = words[i].substring(0, words[i].length - 1)
+            }
+        }
+        
+        var shortestLength = Int.MAX_VALUE
+        for (i in words.indices){
+            if (words[i].length == shortestLength){
+                shortestLength.add(words[i])
+            }
+        }
+        
+        var shortestWords = mutableListOf<String>()
+        for (i in words.indices){
+            if (words[i].length == shortestLength){
+                shortestWords.add(words[i])
+            }
+        }
+        
+        var repeatingWords = mutableListOf<String, Int>()
+        for (i in words.indices){
+            val currentCount = repeatingWords[words[i]] ?: 0
+            repeatingWords[words[i]] =  currentCount + 1
+        }
+        
+        println(input)
+    }//wordLong
+
 
 }//Sort()
 
