@@ -35,7 +35,7 @@ class Sort(){
         }
         return map
     }
-
+/*
     // сортировка HashMap 
     fun sortHashMap(map: HashMap<Char, Int>){
         var sortedMap = mutableMapOf<Char, Int>()
@@ -44,10 +44,12 @@ class Sort(){
           println(sortedMap)
         //return sortedMap
     }
+    */
+    
     // долгий способ
     fun wordLong(){
         val input = "outputName имя outputName - переписанного, файла / с текстом из файла  inputName."
-        var words = mutableListOf<String>
+        var words = mutableListOf<String>()
         var currentWord = ""
         for (i in input.indices){
             if(i == input.length - 1){
@@ -58,13 +60,13 @@ class Sort(){
                 words.add(currentWord)
                 currentWord = ""
             } else {
-                currentWord =+ input[i]
+                currentWord += input[i]
             }
         }
         
         for (i in input.indices){
             words[i] = words[i].toLowerCase()
-            if (words[i].endsWith('.')) || words[i].endsWith(',')){
+            if (words[i].endsWith('.') || words[i].endsWith(',')){
                 words[i] = words[i].substring(0, words[i].length - 1)
             }
         }
@@ -72,7 +74,7 @@ class Sort(){
         var shortestLength = Int.MAX_VALUE
         for (i in words.indices){
             if (words[i].length == shortestLength){
-                shortestLength.add(words[i])
+                shortestLength = words[i].length
             }
         }
         
@@ -83,13 +85,18 @@ class Sort(){
             }
         }
         
-        var repeatingWords = mutableListOf<String, Int>()
+        var repeatingWords = mutableMapOf<String, Int>()
         for (i in words.indices){
             val currentCount = repeatingWords[words[i]] ?: 0
             repeatingWords[words[i]] =  currentCount + 1
         }
         
-        println(input)
+        for(k in repeatingWords.keys){
+            println("$k: ${repeatingWords[k]}")
+        }
+        
+        println("---")
+        println(shortestWords.joinToString(","))
     }//wordLong
 
 
@@ -107,5 +114,5 @@ fun main(){
     println(sort.occurrencesOfCharacters(text).values)
     val a = sort.occurrencesOfCharacters(text)
     println("sort")
-    //println(sort.sortHashMap(a))
+    println(sort.wordLong())
 }
