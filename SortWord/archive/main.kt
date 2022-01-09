@@ -6,7 +6,7 @@ import java.io.File
  * quantityWord - считает количестослов в файле
  */
 class Sort(){
-
+    //Прочитать файл и перевести в нижний регист
     fun readFile(inputName: String): String = File(inputName).readText().lowercase()
 
     fun writeFile(text: String, outputName: String){
@@ -24,7 +24,7 @@ class Sort(){
     fun quantityWord(text: String): Int = Regex("""(\s+|(\r\n|\r|\n))""").findAll(text.trim()).count() + 1
 
     // считаем количесва знаков
-    fun occurrencesOfCharacters(text: String): Map<Char, Int> {
+    fun numberOfCher(text: String): Map<Char, Int> {
         val map = mutableMapOf<Char, Int>()
         for (c in text) {
             // Игнорируем пробелы.
@@ -35,20 +35,57 @@ class Sort(){
         }
         return map
     }
-/*
-    // сортировка HashMap 
-    fun sortHashMap(map: HashMap<Char, Int>){
-        var sortedMap = mutableMapOf<Char, Int>()
-           sortedMap = map
-            sortedMap = hashMapForTry.entries.sortedBy { it.value }.associate { it.toPair() }
-          println(sortedMap)
-        //return sortedMap
-    }
-    */
+
+
+    fun numberOfWords(text: String){
+
+        fun filterEngihg(c: Char): (String) -> String = {s -> s.takeIf{it.endsWith(c)}?.dropLast(1)?: s}
+        var f = File("test3")
+        val words = text.split(" ").map(String::lowercase)
+            .map(filterEngihg(','))
+            .map(filterEngihg('.'))
+            .map(filterEngihg('('))
+            .map(filterEngihg(')'))
+            .map(filterEngihg(':'))
+            .map(filterEngihg('-'))
+        
+        val wordsCount = words.groupingBy{ it }.eachCount()
+        
+        //val shortestLength = words.minByOrNull{ it.length }?.length
+        
+        //val shortestWords = words.filter{ it.length == shortestLength }
+        
+        wordsCount.map { (k, v) -> "$k: $v" }.forEach(::println)
+
+        //println(shortestWords.joinToString(", "))
+    }//wordShort
+
+}//Sort()
+
+fun main(){
+    val sort = Sort()
     
+    val text = sort.readFile("text")
+    //println(sort.quantityWord(text))
+    //println(sort.numberOfCher(text))
+    //sort.writeFile(text, "test2" )
+    /*
+    println(sort.quantityWord(text))
+    println(sort.occurrencesOfCharacters(text))
+    println("keys")
+    println(sort.occurrencesOfCharacters(text).keys)
+    println("values")
+    println(sort.occurrencesOfCharacters(text).values)
+    val a = sort.occurrencesOfCharacters(text)
+    println("sort")
+    */
+    println("___")
+    sort.numberOfWords(text)
+}
+/*  код не работает
     // долгий способ
     fun wordLong(){
-        val input = "outputName имя outputName - переписанного, файла / с текстом из файла  inputName."
+        val input = "outputName inputName."
         var words = mutableListOf<String>()
         var currentWord = ""
         for (i in input.indices){
@@ -65,7 +102,7 @@ class Sort(){
         }
         
         for (i in input.indices){
-            words[i] = words[i].toLowerCase()
+            words[i] = words[i].lowercase()
             if (words[i].endsWith('.') || words[i].endsWith(',')){
                 words[i] = words[i].substring(0, words[i].length - 1)
             }
@@ -73,19 +110,19 @@ class Sort(){
         
         var shortestLength = Int.MAX_VALUE
         for (i in words.indices){
-            if (words[i].length == shortestLength){
+            if (words[i].length < shortestLength){
                 shortestLength = words[i].length
             }
         }
-        
-        var shortestWords = mutableListOf<String>()
+        // самое короткое слово
+        val shortestWords = mutableListOf<String>()
         for (i in words.indices){
             if (words[i].length == shortestLength){
                 shortestWords.add(words[i])
             }
         }
-        
-        var repeatingWords = mutableMapOf<String, Int>()
+        // повторяющиеся слова
+        val repeatingWords = mutableMapOf<String, Int>()
         for (i in words.indices){
             val currentCount = repeatingWords[words[i]] ?: 0
             repeatingWords[words[i]] =  currentCount + 1
@@ -96,23 +133,7 @@ class Sort(){
         }
         
         println("---")
-        println(shortestWords.joinToString(","))
+        println(shortestWords.joinToString(", "))
     }//wordLong
-
-
-}//Sort()
-
-fun main(){
-    val sort = Sort()
-    val text = sort.readFile("test1")
-    sort.writeFile(text, "test2" )
-    println(sort.quantityWord(text))
-    println(sort.occurrencesOfCharacters(text))
-    println("keys")
-    println(sort.occurrencesOfCharacters(text).keys)
-    println("values")
-    println(sort.occurrencesOfCharacters(text).values)
-    val a = sort.occurrencesOfCharacters(text)
-    println("sort")
-    println(sort.wordLong())
-}
+    
+    */
