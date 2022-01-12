@@ -1,19 +1,11 @@
 
-fun fizzBuzz(n: Int): Array<String> {
-    val a = Array<String>(n, {" "})
-    
-    for(i in 1..n-1){
-        if (i % 15 == 0){
-            a.set(i, "FizzBuzz")
-        }else if (i % 5 == 0){
-            a.set(i, "Buzz")
-        }else if (i % 3 == 0){
-            a.set(i, "Fizz")
-        }else {
-            a.set(i, i.toString())
-        } 
+fun fizzBuzz(n: Int) = (1..n).map {
+    when {
+        it % 15 == 0 -> "FizzBuzz"
+        it % 5  == 0 -> "Buzz"
+        it % 3  == 0 -> "Fizz"
+        else -> "$it"
     }
-    return a
 }
 
 fun main() {
