@@ -1,9 +1,7 @@
 
 fun mergeSort(list: List<Int>): List<Int> {
-    if (list.size <= 1) {
-        return list
-    }
-
+    if (list.size <= 1) return list
+    
     val middle = list.size / 2
     var left = list.subList(0,middle)
     var right = list.subList(middle,list.size)
