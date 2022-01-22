@@ -1,9 +1,7 @@
 
 fun mergeSort(list: List<Int>): List<Int> {
-    if (list.size <= 1) {
-        return list
-    }
-
+    if (list.size <= 1) return list
+    
     val middle = list.size / 2
     var left = list.subList(0,middle)
     var right = list.subList(middle,list.size)
@@ -42,6 +40,6 @@ fun merge(left: List<Int>, right: List<Int>): List<Int>  {
 fun main(args: Array<String>) {
     val numbers = mutableListOf(38,27,43,3,9,82,10)
     val sortedList = mergeSort(numbers)
-    println("Unsorted: $numbers")
-    println("Sorted: $sortedList")
+    println("Исходный массив: $numbers")
+    println("Отсортированный массив: $sortedList")
 }
