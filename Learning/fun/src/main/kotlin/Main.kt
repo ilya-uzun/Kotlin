@@ -16,6 +16,9 @@ fun main(args: Array<String>) {
 
 //анонимные функции
     val sum = fun(x: Int, y: Int): Int = x + y
+    
+// лямбда-вырожения
+     val sum = {x:Int, y:Int -> x + y }
 }
 
 //Функция как параметр функции
