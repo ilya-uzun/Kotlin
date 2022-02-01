@@ -18,7 +18,8 @@ fun main(args: Array<String>) {
     val sum = fun(x: Int, y: Int): Int = x + y
     
 // лямбда-вырожения
-     val sum = {x:Int, y:Int -> x + y }
+     val summa = {x:Int, y:Int -> x + y }
+    println(summa(2, 2))
 }
 
 //Функция как параметр функции
